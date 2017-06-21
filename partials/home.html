@@ -1,0 +1,31 @@
+<div class="main">
+    <div class="main-header">
+        <h4 class="modal-title">Modal Header</h4>
+    </div>
+    <div id="start" class="tab-pane fade in active">
+        <div class="col-xs-12">
+            <div class="form-group" id="start-address">
+                <label>Where are you leaving from?</label>
+                <input type="text" ng-required="true" ng-model="string" class="form-control" id="address-1" placeholder="Address" />
+                <input type="text" class="form-control" id="address-2" placeholder="Apartment Number" />
+                <div class="form-inline">
+                    <input type="text" class="form-control" id="depart-city" placeholder="City" />
+                    <input type="text" maxlength="2" class="form-control" id="depart-state" placeholder="STATE" size="5px" />
+                    <input type="text" placeholder="Zip" id="depart-zip" class="form-control" size="10px" />
+                </div>
+                <div class="row">
+                    <label>When do you want to leave?</label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="test"> Enter a Range</label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value=""> Enter single date</label>
+                    <input type="date" name="departure" placeholder="Earliest start" class="form-control">
+                    <input type="date" name="departure" placeholder="Latest start" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer" id="start-modal-footer">
+    <button class="btn btn-md md-raised md-primary" data-dismiss="modal">Begin</button>
+</div>
