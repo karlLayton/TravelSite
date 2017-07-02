@@ -1,0 +1,207 @@
+<div class="col-xs-12">
+    <div class="form-group" id="start-address">
+        <label>Where are you leaving from?</label>
+        <input type="text" class="form-control" id="address-1" placeholder="Address" />
+        <input type="text" class="form-control" id="address-2" placeholder="Apartment Number" />
+        <div class="form-inline">
+            <input type="text" class="form-control" id="depart-city" placeholder="City" />
+            <input type="text" maxlength="2" class="form-control" id="depart-state" placeholder="STATE" size="5px" />
+            <input type="text" placeholder="Zip" id="depart-zip" class="form-control" size="10px" />
+        </div>
+        <div class="row">
+            <label>When do you want to leave?</label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="test"> Enter a Range</label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value=""> Enter single date</label>
+            <input type="date" name="departure" placeholder="Earliest start" class="form-control">
+            <input type="date" name="departure" placeholder="Latest start" class="form-control">
+        </div>
+    </div>
+</div>
+<div class="modal-footer" id="start-modal-footer">
+    <ul class="pager">
+        <li class="previous"><a class="btn btn-md" data-dismiss="modal">Cancel</a></li>
+        <li class="next"><a class="btn btn-md" data-toggle="modal" data-target="#midstops-modal" data-dismiss="modal">  Next  </a></li>
+    </ul>
+</div>
+<!-- <div class="modal" id="midstops-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="midstops-modal-content">
+            <div class="modal-header" id="midstops-modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Mid Stops Header</h4>
+            </div>
+            <div class="modal-body" id="midstops-modal-body">
+                <div id="midstops" class="tab-pane fade in active">
+                    <div class="col-xs-12">
+                        <div class="form-group" id="midstops-address">
+                            <label>Where would you like to stop?</label>
+                            <input type="text" class="form-control" id="address-1" placeholder="Address" />
+                            <input type="text" class="form-control" id="address-2" placeholder="Apartment Number" />
+                            <div class="form-inline">
+                                <input type="text" class="form-control" id="depart-city" placeholder="City" />
+                                <input type="text" maxlength="2" class="form-control" id="depart-state" placeholder="STATE" size="5px" />
+                                <input type="text" placeholder="Zip" id="depart-zip" class="form-control" size="10px" />
+                            </div>
+                            <div class="row">
+                                <label>When will you be ready to leave again?</label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="test"> Enter a Range</label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value=""> Enter single date</label>
+                                <input type="date" name="departure" placeholder="Earliest start" class="form-control">
+                                <input type="date" name="departure" placeholder="Latest start" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="midstops-modal-footer">
+                <ul class="pager">
+                    <li class="previous"><a class="btn btn-md" data-dismiss="modal" data-toggle="modal" data-target="#start-modal">Previous</a></li>
+                    <li class="next"><a class="btn btn-md" data-toggle="modal" data-target="#destination-modal" data-dismiss="modal">  Next  </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="destination-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="destination-modal-content">
+            <div class="modal-header" id="destination-modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Destination Header</h4>
+            </div>
+            <div class="modal-body" id="destination-modal-body">
+                <div id="destination" class="tab-pane fade in active">
+                    <div class="col-xs-12">
+                        <div class="form-group" id="destination-address">
+                            <label>Where do you want to go?</label>
+                            <input type="text" class="form-control" id="address-1" placeholder="Address" />
+                            <input type="text" class="form-control" id="address-2" placeholder="Apartment Number" />
+                            <div class="form-inline">
+                                <input type="text" class="form-control" id="depart-city" placeholder="City" />
+                                <input type="text" maxlength="2" class="form-control" id="depart-state" placeholder="STATE" size="5px" />
+                                <input type="text" placeholder="Zip" id="depart-zip" class="form-control" size="10px" />
+                            </div>
+                            <div class="row">
+                                <label>When do you want get there?</label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value=""> Enter a Range</label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value=""> Enter single date</label>
+                                <input type="date" name="destination" placeholder="Earliest arrival" class="form-control">
+                                <input type="date" name="destination" placeholder="Latest arrival" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="destination-modal-footer">
+                <ul class="pager">
+                    <li class="previous"><a class="btn btn-md" data-dismiss="modal" data-toggle="modal" data-target="#midstops-modal">Previous</a></li>
+                    <li class="next"><a href="#passengers-modal" class="btn btn-md" data-toggle="modal" data-target="#passengers-modal" data-dismiss="modal">  Next  </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="passengers-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="passengers-modal-content">
+            <div class="modal-header" id="passengers-modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Passenger Header</h4>
+            </div>
+            <div class="modal-body" id="passengers-modal-body">
+                <div id="passengers" class="tab-pane fade in active">
+                    <div class="form-group">
+                        <div class "row">
+                            <div class="col-xs-2">
+                                <label for="adults">Adults:</label>
+                                <input type="number" placeholder="1" id="num-adults" class="form-control" min="0" max="10" style="width: 3em">
+                            </div>
+                            <div class="col-xs-2">
+                                <label for="children">Children:</label>
+                                <input type="number" placeholder="0" id="num-children" class="form-control" min="0" max="10" style="width: 3em">
+                            </div>
+                            <div class="col-xs-2">
+                                <label for="pets">Pets:</label>
+                                <input type="number" placeholder="0" id="num-pets" class="form-control" min="0" max="10" style="width: 3em">
+                            </div>
+                            <div class="col-xs-2">
+                                <label for="luggage">Luggage:</label>
+                                <input type="number" placeholder="0" id="num-luggage" class="form-control" min="0" max="40" style="width: 3em">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="passengers-modal-footer">
+                <ul class="pager">
+                    <li class="previous"><a class="btn btn-md" data-dismiss="modal" data-toggle="modal" data-target="#destination-modal">Previous</a></li>
+                    <li class="next"><a href="#-modal" class="btn btn-md" data-toggle="modal" data-target="#options-modal" data-dismiss="modal">  Next  </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="options-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="options-modal-content">
+            <div class="modal-header" id="option-modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Options Header</h4>
+            </div>
+            <div class="modal-body" id="options-modal-body">
+                <div id="options" class="tab-pane fade in active">
+                    <div class="form-group">
+                        <div class "row">
+                            <ul id="options">
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Driving a car</label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Take a plane</label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Driving an RV</label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Take a boat</label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Driving a boat</label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Taking a train</label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Riding a bus</label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value=""> Using a ridshare like Uber or Lyft</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="options-modal-footer">
+                <ul class="pager">
+                    <li class="previous"><a class="btn btn-md" data-dismiss="modal" data-toggle="modal" data-target="#passengers-modal">Previous</a></li>
+                    <li class="next"><a class="btn btn-md" data-dismiss="modal">Results</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> -->

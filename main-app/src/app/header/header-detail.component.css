@@ -1,0 +1,22 @@
+/*@media only screen and (max-device-width: 480px) {*/
+
+.navbar {
+    background: none;
+    position: relative;
+    border: none;
+}
+
+.navbar a {
+    color: black;
+}
+
+.navbar a:hover {
+    color: #8A8A8A;
+}
+
+.navbar .navbar-toggle {
+    background: #8A8A8A
+}
+
+
+/*}*/
