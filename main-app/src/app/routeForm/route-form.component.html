@@ -1,30 +1,126 @@
-<div class="col-xs-12">
-    <div class="form-group" id="start-address">
-        <label>Where are you leaving from?</label>
-        <input type="text" class="form-control" id="address-1" placeholder="Address" />
-        <input type="text" class="form-control" id="address-2" placeholder="Apartment Number" />
-        <div class="form-inline">
-            <input type="text" class="form-control" id="depart-city" placeholder="City" />
-            <input type="text" maxlength="2" class="form-control" id="depart-state" placeholder="STATE" size="5px" />
-            <input type="text" placeholder="Zip" id="depart-zip" class="form-control" size="10px" />
+<form [formGroup]="startingAddressForm" novalidate>
+    <div formGroupName="address">
+        <div class="form-group">
+            <label class="center-block">Address:
+                <input class="form-control" formControlName="street">
+            </label>
         </div>
-        <div class="row">
-            <label>When do you want to leave?</label>
-            <label class="checkbox-inline">
-                <input type="checkbox" value="test"> Enter a Range</label>
-            <label class="checkbox-inline">
-                <input type="checkbox" value=""> Enter single date</label>
-            <input type="date" name="departure" placeholder="Earliest start" class="form-control">
-            <input type="date" name="departure" placeholder="Latest start" class="form-control">
+        <div class="form-group">
+            <label class="center-block">Apartment #:
+                <input class="form-control" formControlName="apt">
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="center-block">City:
+                <input class="form-control" formControlName="city">
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="center-block">State:
+                <select class="form-control" formControlName="state">
+                    <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+                </select>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="center-block">Zip:
+                <input class="form-control" formControlName="zipCode">
+            </label>
         </div>
     </div>
+</form>
+<p>Start Address:</p>
+<p>{{ startingAddressForm.value | json}}</p>
+<p>{{ startingAddressForm.status | json }}</p>
+<!-- For Template driven forms.
+<div [hidden]="submitted">
+    <div class="col-sm-8">
+        <h1>Where are you starting?</h1>
+        <form #routeForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+            <div class="form-group">
+                <label for="address-line-1" class="control-label col-sm-2">Address Line 1:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="address-line-1" required [(ngModel)]="model.line1" name="address-line-1" #line1="ngModel">
+                    <div [hidden]="line1.valid || !line1.touched" class="alert alert-danger">
+                        Address is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address-line-2" class="control-label col-sm-2">Address Line 2:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="address-line-2" [(ngModel)]="model.line2" name="address-line-2" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="depart-city" class="control-label col-sm-2">City:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="depart-city" [(ngModel)]="model.city" name="city" required #city="ngModel" />
+                    <div [hidden]="city.valid || !city.touched" class="alert alert-danger">
+                        City is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="state" class="control-label col-sm-2">State:</label>
+                <div class="col-sm-6">
+                    <select class="form-control" id="state" required [(ngModel)]="model.state" name="state">
+                        <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                        <div [hidden]="city.valid || !city.touched" class="alert alert-danger">
+                            State is required
+                        </div>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="zip" class="control-label col-sm-2">Zip Code:</label>
+                <div class="col-sm-3">
+                    <input type="text" id="depart-zip" class="form-control" required minlength="5" maxlength="5" [(ngModel)]="model.zip" name="zip" #zip="ngModel" />
+                    <div *ngIf="zip.errors && (zip.dirty || zip.touched)" class="alert alert-danger">
+                        <div [hidden]="!zip.errors.required">
+                            Zip is required
+                        </div>
+                        <div [hidden]="!zip.errors.minlength">
+                            Zip must be 5 characters long.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>When are you leaving?</h3>
+                <br>
+                <label class="control-label col-sm-4 checkbox-inline"> Enter a Range of Dates</label>
+                <input type="checkbox" value="test" />
+                <label class="control-label col-sm-4 checkbox-inline">
+                    <input type="checkbox" value=""> Enter a Single Date</label>
+                <input type="date" name="departure" placeholder="Earliest start" class="form-control" required>
+                <input type="date" name="departure" placeholder="Latest start" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!routeForm.form.valid">Submit</button>
+        </form>
+        <button type="button" class="btn btn-default" (click)="newAddress(); routeForm.reset()">Clear Form</button>
+    </div>
 </div>
-<div class="modal-footer" id="start-modal-footer">
-    <ul class="pager">
-        <li class="previous"><a class="btn btn-md" data-dismiss="modal">Cancel</a></li>
-        <li class="next"><a class="btn btn-md" data-toggle="modal" data-target="#midstops-modal" data-dismiss="modal">  Next  </a></li>
-    </ul>
-</div>
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Address:</div>
+        <div class="col-xs-9  pull-left">{{ model.line1 }}, {{ model.line2 }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">City:</div>
+        <div class="col-xs-9 pull-left">{{ model.city }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">State:</div>
+        <div class="col-xs-9 pull-left">{{ model.state }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Zip:</div>
+        <div class="col-xs-9 pull-left">{{ model.zip }}</div>
+    </div>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div> -->
 <!-- <div class="modal" id="midstops-modal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content" id="midstops-modal-content">

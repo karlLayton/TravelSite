@@ -7,16 +7,18 @@
 }
 
 .navbar a {
-    color: black;
+    color: #FFFFFF;
 }
 
 .navbar a:hover {
-    color: #8A8A8A;
+    color: #E0162B;
 }
 
 .navbar .navbar-toggle {
-    background: #8A8A8A
+    background: #E0162B
 }
-
+a {
+	font-size: 3.5vh;
+}
 
 /*}*/
